@@ -41,5 +41,23 @@
 </tr>
 </tbody>
       </table>
+      
+* * *
+### Comment
+<pre> 
+제출 후에 어떻게하면 분기를 안태우고 공식을 세울까 고민해보고 다시 제출했다.
+통과하기는 했지만 0.01 ms -> 8.46 ms 가 됐다.
+아..공통식보다 분기를 태우는게 더 나을수도 있겠구나.. 코드가 짧은게 꼭 최선은 아니었다.
+
+slice 는 내부적으로 substring 을 호출한다.
+kotlin 에서 재공하는 range expression 을 subString 의 parameter 로 넘겨줄 수 있다. 
+이럴때는 내부적으로 endIndex+1 이 된다.
+
+추가로 repeat(), chunked(), require(), check() 함수를 알게됐다. 얼른..케이콜 코드에 적용해봐야겠음
+
+</pre>
+
+* * *
+
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
