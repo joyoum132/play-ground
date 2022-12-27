@@ -2,6 +2,15 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42889) 
 
+
+### 풀이 
+시간: 50min
+총점 : +17
+전적 : 2 (1,1)
+
+총평: 조건을 꼼꼼하게 읽자. 
+
+
 ### 성능 요약
 
 메모리: 61.4 MB, 시간: 14.21 ms
