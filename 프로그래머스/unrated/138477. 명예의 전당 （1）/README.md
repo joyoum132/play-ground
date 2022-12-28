@@ -2,6 +2,12 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/138477) 
 
+### 풀이
+시간: 33min <br/>
+총점 : +17 <br/>
+전적 : 1 (1,0) <br/>
+
+
 ### 성능 요약
 
 메모리: 63.4 MB, 시간: 25.03 ms
