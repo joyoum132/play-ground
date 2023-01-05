@@ -2,6 +2,11 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/140108) 
 
+### 풀이 
+시간: 60min <br/>
+총점 : +8 <br/>
+전적 : 2 (1,1) <br/><br/>
+
 ### 성능 요약
 
 메모리: 87.6 MB, 시간: 64.66 ms
