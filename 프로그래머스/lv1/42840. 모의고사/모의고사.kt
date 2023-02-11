@@ -7,6 +7,7 @@ class Solution {
         var s1 = Array(answers.size) { 0 }
         var s2 = Array(answers.size) { 0 }
         var s3 = Array(answers.size) { 0 }
+        //answers 만큼 수포자들의 intArray 를 새로 만들었는데, 그렇게 하지 않고 뱌로 정답 여부를 체크해서 count 하면 더 좋았을 것 같다.
         for (i in answers.indices) {
             s1[i] = s1Seq[i%(s1Seq.size)]
             s2[i] = s2Seq[i%(s2Seq.size)]
