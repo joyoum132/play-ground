@@ -34,6 +34,7 @@ class Solution {
             return res
         }
 
+    //짧은 값이 main 인게 좋지않을까.. 많이 급했니?
     val a = if(xm.size >= ym.size) {
         calc(xm, ym)
     } else {
