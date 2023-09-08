@@ -1,27 +1,25 @@
 import kotlin.math.sqrt
 
 class Solution {
+    
     fun solution(number: Int, limit: Int, power: Int): Int {
-        var answer = 0
-        fun getPower(p: Int) : Int = if(p > limit) power else p
-
-        (1..number).forEach { n ->
-            if(n == 1) {
-                answer += getPower(n)
-                return@forEach
-            } else {
-                val sqrt = sqrt(n.toDouble()).toInt()
-                var cnt = 0
-                (1..sqrt).forEach { s ->
-                    if(n%s == 0) {
-                        cnt += 2
-                    }
-
-                }
-                val p = if(sqrt*sqrt == n) cnt-1 else cnt
-                answer += getPower(p)
+        return IntArray(number) {
+            if(it == 0) 1
+            else getAttack(it+1, limit, power)
+        }.sum()
+    }
+    
+    fun getAttack(number: Int, limit: Int, power: Int): Int {
+        var cnt = 0
+        var i = 1
+        while(i * i < number) {
+            if(number % i == 0) {
+                cnt +=2
             }
+            i+=1
         }
-        return answer
+        if(i*i == number) cnt+=1
+
+        return if(cnt > limit) power else cnt
     }
 }
