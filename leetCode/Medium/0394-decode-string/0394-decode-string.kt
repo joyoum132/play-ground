@@ -2,29 +2,29 @@ class Solution {
     fun decodeString(s: String): String {
         val cntStack = Stack<Int>()
         val strStack = Stack<String>()
-        var str = ""
-        var cnt = ""
-        
+        var str = StringBuilder()
+        var cnt = StringBuilder()
         for(c in s) {
             when(c.code) {
                 in 48..57 -> {
-                    cnt += c.toString()
+                    cnt.append(c.toString())
                 }
                 91 -> {
-                    cntStack.push(cnt.toInt())
-                    strStack.push(str)
-                    
-                    cnt = ""
-                    str = ""
+                    strStack.push(str.toString())
+                    cntStack.push(cnt.toString().toInt())
+                    str = StringBuilder()
+                    cnt = StringBuilder()
                 }
                 93 -> {
-                    str = strStack.pop() + str.repeat(cntStack.pop())
-                } 
+
+                    str =  StringBuilder(strStack.pop() + str.repeat(cntStack.pop()))
+                }
                 else -> {
-                    str += c.toString()
+                    str.append(c.toString())
                 }
             }
         }
-        return str
+
+        return str.toString()
     }
 }
