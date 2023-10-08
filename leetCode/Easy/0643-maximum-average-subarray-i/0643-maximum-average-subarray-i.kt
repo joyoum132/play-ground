@@ -1,18 +1,18 @@
 class Solution {
     fun findMaxAverage(nums: IntArray, k: Int): Double {
-        var max: Int? = null
-        var maxArr = IntArray(k)
-        for(idx in nums.size-1 downTo 0) {
-            if(idx < k-1) break
+        var sum = 0
+        var avg : Double? = null
 
-            val t = nums.sliceArray(idx-k+1..idx)
-            val ts = t.sum()
-
-            if(max == null || ts > max) {
-                maxArr = t
-                max = ts
+        for (i in nums.indices) {
+            sum += nums[i]
+            if(i >= k-1) {
+                val a: Double = sum.toDouble() / k
+                if(avg == null || avg < a ) {
+                    avg = a
+                }
+                sum -= nums[i-k+1]
             }
         }
-        return maxArr.average()
+        return avg!!
     }
 }
