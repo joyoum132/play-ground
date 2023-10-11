@@ -25,13 +25,7 @@ class Solution {
             a1 += arr[0]
             a2 += arr[1]
         }
-        a1 = a1.sortedArray()
-        a2 = a2.sortedArray()
-
-        for(i in a1.indices) {
-            if(a1[i] != a2[i]) return false
-        }
-
-        return true
+        
+        return a1.sortedArray().contentEquals(a2.sortedArray())
     }
 }
