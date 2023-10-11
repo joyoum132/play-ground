@@ -6,18 +6,15 @@ class Solution {
         for(i in word1.indices) {
             val c1 = word1[i]
             val c2 = word2[i]
-            if(map.containsKey(c1)) {
-                map[c1]!![0]+=1
-            } else {
-                map[c1] = intArrayOf(1,0)
-            }
 
-            if(map.containsKey(c2)) {
-                map[c2]!![1]+=1
-            } else {
-                map[c2] = intArrayOf(0,1)
+            map.compute(c1) {_, value ->
+                (value?: intArrayOf(0,0)).apply { this[0]+=1 }
+            }
+            map.compute(c2) {_, value ->
+                (value?: intArrayOf(0,0)).apply { this[1] +=1 }
             }
         }
+        
         var a1 = intArrayOf()
         var a2 = intArrayOf()
         for(arr in map.values) {
