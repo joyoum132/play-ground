@@ -1,20 +1,19 @@
 class Solution {
     fun equalPairs(grid: Array<IntArray>): Int {
-        val a1 = mutableSetOf<IntArray>()
-        val a2 = mutableSetOf<IntArray>()
+        val a1 = arrayListOf<String>()
+        val a2 = arrayListOf<String>()
+        
         for(i in 0 until grid.size) {
-            var aa1 = IntArray(grid.size)
-            var aa2 = IntArray(grid.size)
+            var s1 = StringBuilder()
+            var s2 = StringBuilder()
             for(j in 0 until grid.size) {
-                aa1 += grid[i][j]
-                aa2 += grid[j][i]
+                s1.append(grid[i][j]).append(" ")
+                s2.append(grid[j][i]).append(" ")
             }
-            a1 += aa1
-            a2 += aa2
+            a1 += s1.toString()
+            a2 += s2.toString()
         }
 
-        return a1.sumOf { it ->
-            a2.count { i -> i.contentEquals(it) }
-        }
+        return a1.sumOf { a2.count { i-> i == it} }
     }
 }
