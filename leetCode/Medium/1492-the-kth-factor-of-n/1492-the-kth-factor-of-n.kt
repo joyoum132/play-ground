@@ -1,7 +1,7 @@
 class Solution {
     fun kthFactor(n: Int, k: Int): Int {
         var i = 1
-        val factor = mutableSetOf<Int>()
+        var factor = intArrayOf()
         while(i*i < n) {
             if(n%i == 0) {
                 factor += i
