@@ -1,6 +1,9 @@
 import java.util.*;
 class Solution {
     public String solution(String[] participant, String[] completion) {
+        /*solution 을 보고 수정한 코드
+        * hashmap은 하나로 합치고
+        * key, value가 둘 다 필요하기때문에 entrySet으로 루프*/
         Map<String, Integer> m = new HashMap<>();
         for(String p : participant) {
             m.put(p, m.getOrDefault(p, 0) + 1);
