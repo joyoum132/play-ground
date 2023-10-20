@@ -2,6 +2,10 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] nums) {
-        return Math.min(Arrays.stream(nums).distinct().toArray().length, nums.length/2);
+        HashSet<Integer> hs = new HashSet<Integer>();
+        for(int num : nums) {
+            hs.add(num);
+        }
+        return Math.min(hs.size(), nums.length/2);
     }
 }
