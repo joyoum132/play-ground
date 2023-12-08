@@ -2,16 +2,15 @@ import java.util.*;
 
 public class Solution {
     public int[] solution(int []arr) {
-        ArrayList<Integer> result = new ArrayList<>(){{
-            add(arr[0]);
-        }};
-        
-        for(int i=1;i<arr.length;i++) {
-            if(arr[i-1] != arr[i]) {
-                result.add(arr[i]);
+        Stack<Integer> s = new Stack<>();
+        s.add(arr[0]);
+
+        for (int i=1; i<arr.length; i++) {
+            if(!s.isEmpty() && arr[i] != s.peek()) {
+                s.add(arr[i]);
             }
         }
 
-        return result.stream().mapToInt(it->it).toArray();
+        return s.stream().mapToInt(it->it).toArray();
     }
 }
