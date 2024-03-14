@@ -1,19 +1,16 @@
 class Solution {
     fun solution(k: Int, tangerine: IntArray): Int {
-        val map = HashMap<Int, Int>()
+        val tValues: List<Int> = tangerine
+        .groupBy { it }
+        .map { it.value.size }
+        .sortedDescending()
 
-        for(t in tangerine) {
-            map.compute(t) {_,v -> (v?:0)+1}
+        var packedTangerine = 0
+        for (i in tValues.indices) {
+            packedTangerine+= tValues[i]
+            if(packedTangerine >= k) return i+1
+
         }
-        var curT = 0
-        var t = 0
-        for(cnt in map.values.sortedDescending()) {
-            curT += cnt
-            t+=1
-            if(curT >= k) {
-                return t
-            }
-        }
-        return t
+        return 0
     }
 }
