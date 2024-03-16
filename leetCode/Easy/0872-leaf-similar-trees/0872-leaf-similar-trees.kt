@@ -33,8 +33,9 @@ class Solution {
                     break
                 } else {
                     println("leftTree's branch is ${node.`val`}")
-                    node.right?.let{ leftStack.push(it) }
                     node.left?.let{ leftStack.push(it) }
+                    node.right?.let{ leftStack.push(it) }
+                    
                     
                 }
             }
@@ -47,9 +48,8 @@ class Solution {
                     break
                 } else {
                     println("rightTree's branch is ${node.`val`}")
-                    node.right?.let{ rightStack.push(it) }
                     node.left?.let{ rightStack.push(it) }
-                    
+                    node.right?.let{ rightStack.push(it) }
                 }
             }
             
