@@ -29,10 +29,13 @@ class Solution {
                 val node = leftStack.pop()
                 if(node.left==null && node.right==null) {
                     leftVal = node.`val`
+                    println("leftTree's leaf is $leftVal")
                     break
                 } else {
-                    node.left?.let{ leftStack.push(it) }
+                    println("leftTree's branch is ${node.`val`}")
                     node.right?.let{ leftStack.push(it) }
+                    node.left?.let{ leftStack.push(it) }
+                    
                 }
             }
             
@@ -40,10 +43,13 @@ class Solution {
                 val node = rightStack.pop()
                 if(node.left==null && node.right==null) {
                     rightVal = node.`val`
+                    println("rightTree's leaf is $rightVal")
                     break
                 } else {
-                    node.left?.let{ rightStack.push(it) }
+                    println("rightTree's branch is ${node.`val`}")
                     node.right?.let{ rightStack.push(it) }
+                    node.left?.let{ rightStack.push(it) }
+                    
                 }
             }
             
