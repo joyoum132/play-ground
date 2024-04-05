@@ -1,17 +1,15 @@
 class Solution {
     fun rob(nums: IntArray): Int {
         if(nums.size == 1) return nums[0]
-        if(nums.size == 2) return max(nums[0], nums[1])
-        var before = max(nums[0], nums[1])
-        var bBefore = nums[0]
-        var current = 0
-
+    
+        val r = IntArray(nums.size){0}
+        r[0] = nums[0]
+        r[1] = Math.max(nums[0], nums[1])
+        
         for(i in 2..nums.lastIndex) {
-            current = max(before, bBefore + nums[i])
-            bBefore = before
-            before = current
+            r[i] = Math.max(r[i-2]+nums[i], r[i-1])
         }
-
-        return current
+        
+        return r[nums.lastIndex]
     }
 }
