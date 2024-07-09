@@ -2,21 +2,25 @@ import java.util.*;
 
 class Solution {
     public String solution(String[] participant, String[] completion) {
-        HashMap<String, Integer> map = new HashMap<>();
+        Map<String, Integer> pMap = new HashMap<>();
+        Map<String, Integer> cMap = new HashMap<>();
 
-        for(String name : participant) {
-            map.compute(name, (k, val) -> val == null ? 1 : val+1);
+        for(String s : participant) {
+            pMap.compute(s, (k,v) -> v == null ? 1 : v+1);
         }
-        for(String name: completion) {
-            int cnt = map.get(name)-1;
-            if(cnt == 0) map.remove(name);
-            else map.put(name, cnt);
+
+        for(String s : completion) {
+            cMap.compute(s, (k,v) -> v == null ? 1 : v+1);
         }
-        String answer = "";
-        for (String s : map.keySet()) {
-            answer = s;
+
+        for(Map.Entry<String, Integer> m : pMap.entrySet()) {
+            String key = m.getKey();
+
+            if(!cMap.containsKey(key) || cMap.get(key) < m.getValue()) {
+                return key;
+            }
         }
-        
-        return answer;
+
+        return "";
     }
 }
